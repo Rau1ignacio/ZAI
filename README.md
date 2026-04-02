@@ -1,64 +1,61 @@
-# 💰 ZAI - Inteligencia Financiera Personal
+# ZAI
 
-ZAI es una plataforma de gestión financiera personal que combina:
+Controla tu dinero. Crece con claridad.
 
-- 📊 Business Intelligence (Dashboards financieros)
-- 🤖 Inteligencia Artificial (Recomendaciones)
-- 💳 Gestión de ingresos, gastos, créditos e inversiones
-- 🌎 Escalabilidad a LATAM
-- 🔐 Enfoque en seguridad y privacidad de datos
+## Estado actual
 
----
+Frontend web en React + TypeScript + Vite, con Tailwind CSS y estructura modular por dominios.
 
-## 🚀 Objetivo
+## Estructura principal
 
-Ayudar a las personas a:
+```
+ZAI/
+  apps/
+    web/
+      src/
+        app/
+        modules/
+          dashboard/
+          transactions/
+          budgets/
+          goals/
+          auth/
+        components/
+          ui/
+          charts/
+        services/
+          api/
+        hooks/
+        types/
+```
 
-- Entender su dinero
-- Tomar mejores decisiones financieras
-- Compararse con personas similares
-- Optimizar su futuro financiero
+## Requisitos
 
----
+- Node.js 18+
 
-## 🧠 Características principales
+## Desarrollo local
 
-- Dashboard financiero inteligente
-- Gestión de ingresos y gastos
-- Presupuestos y metas
-- Control de deudas y créditos
-- Seguimiento de inversiones
-- Comparación con otros usuarios (benchmarking)
-- Recomendaciones con IA
-- Sistema de beneficios y descuentos
+```
+cd apps/web
+npm install
+npm run dev
+```
 
----
+## Scripts principales
 
-## 🏗️ Arquitectura
+Desde `apps/web`:
 
-- Microservicios + Event Driven
-- API First
-- Escalable en la nube (AWS)
+- `npm run dev` - servidor de desarrollo
+- `npm run build` - build de produccion
+- `npm run preview` - vista previa del build
 
----
+## Tecnologias
 
-## 🛠️ Tecnologías
-
-### Frontend
-- React + TypeScript
+- Vite
+- React
+- TypeScript
 - Tailwind CSS
-
-### Backend
-- Java + Spring Boot
-
-### Base de datos
-- PostgreSQL
-- Redis
-
-### Infraestructura
-- Docker
-- AWS
-
----
-
-## 📂 Estructura del proyecto
+- React Router
+- TanStack Query
+- Zustand
+- Axios
