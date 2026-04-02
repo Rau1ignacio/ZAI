@@ -2,7 +2,6 @@ import { NavLink } from "react-router-dom";
 
 const navItems = [
   { to: "/", label: "Dashboard" },
-  { to: "/data-entry", label: "Agregar Datos" },
   { to: "/transactions", label: "Transacciones" },
   { to: "/budgets", label: "Presupuestos" },
   { to: "/goals", label: "Metas" },

@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-export type CurrencyCode = "CLP" | "USD";
+export type CurrencyCode = "CLP" | "USD" | "EUR" | "MXN" | "BRL" | "ARS" | "COP" | "PEN" | "UYU" | "BOB";
 
 type CurrencyState = {
   currency: CurrencyCode;
