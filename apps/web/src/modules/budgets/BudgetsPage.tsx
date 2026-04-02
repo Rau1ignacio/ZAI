@@ -1,13 +1,9 @@
 import { budgets } from "../../data/mock";
-
-const formatCurrency = (value: number) =>
-  new Intl.NumberFormat("es-CL", {
-    style: "currency",
-    currency: "CLP",
-    maximumFractionDigits: 0,
-  }).format(value);
+import { useCurrency } from "../../hooks/useCurrency";
 
 export default function BudgetsPage() {
+  const { convert, format } = useCurrency();
+
   return (
     <div className="space-y-8">
       {/* Encabezado de la vista */}
@@ -38,7 +34,8 @@ export default function BudgetsPage() {
                     {budget.name}
                   </p>
                   <p className="text-xs text-slate-400">
-                    {formatCurrency(budget.spent)} de {formatCurrency(budget.limit)}
+                    {format.format(convert(budget.spent))} de{" "}
+                    {format.format(convert(budget.limit))}
                   </p>
                 </div>
                 <span className="text-sm text-emerald-300">{percent}%</span>

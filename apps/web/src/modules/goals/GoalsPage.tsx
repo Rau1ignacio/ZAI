@@ -1,13 +1,9 @@
 import { goals } from "../../data/mock";
-
-const formatCurrency = (value: number) =>
-  new Intl.NumberFormat("es-CL", {
-    style: "currency",
-    currency: "CLP",
-    maximumFractionDigits: 0,
-  }).format(value);
+import { useCurrency } from "../../hooks/useCurrency";
 
 export default function GoalsPage() {
+  const { convert, format } = useCurrency();
+
   return (
     <div className="space-y-8">
       {/* Contexto + propuesta de valor */}
@@ -40,8 +36,8 @@ export default function GoalsPage() {
                 />
               </div>
               <div className="mt-4 flex items-center justify-between text-xs text-slate-400">
-                <span>{formatCurrency(goal.current)}</span>
-                <span>{formatCurrency(goal.target)}</span>
+                <span>{format.format(convert(goal.current))}</span>
+                <span>{format.format(convert(goal.target))}</span>
               </div>
               <p className="mt-4 text-xs text-slate-400">
                 Ahorro automatico programado cada viernes.

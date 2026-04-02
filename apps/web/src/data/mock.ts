@@ -3,19 +3,19 @@ import type { Budget, Goal, Transaction } from "../types/finance";
 export const kpis = [
   {
     label: "Saldo total",
-    value: "$12.480.000",
+    value: 12_480_000,
     delta: "+4.3%",
     detail: "Ultimos 30 dias",
   },
   {
     label: "Cashflow mensual",
-    value: "$1.920.000",
+    value: 1_920_000,
     delta: "+12.8%",
     detail: "Ingresos - gastos",
   },
   {
     label: "Ahorro proyectado",
-    value: "$6.400.000",
+    value: 6_400_000,
     delta: "+9.1%",
     detail: "Meta anual",
   },

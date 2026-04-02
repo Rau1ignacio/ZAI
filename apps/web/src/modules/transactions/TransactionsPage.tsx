@@ -1,13 +1,9 @@
 import { transactions } from "../../data/mock";
-
-const formatCurrency = (value: number) =>
-  new Intl.NumberFormat("es-CL", {
-    style: "currency",
-    currency: "CLP",
-    maximumFractionDigits: 0,
-  }).format(value);
+import { useCurrency } from "../../hooks/useCurrency";
 
 export default function TransactionsPage() {
+  const { convert, format } = useCurrency();
+
   return (
     <div className="space-y-8">
       {/* Contexto rapido del modulo */}
@@ -45,7 +41,7 @@ export default function TransactionsPage() {
               <span className="text-slate-300">{tx.category}</span>
               <span className="text-slate-400">{tx.date}</span>
               <span className="text-right font-semibold text-white">
-                {formatCurrency(tx.amount)}
+                {format.format(convert(tx.amount))}
               </span>
             </div>
           ))}

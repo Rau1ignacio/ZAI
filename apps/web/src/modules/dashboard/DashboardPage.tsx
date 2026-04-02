@@ -1,13 +1,9 @@
 import { budgets, goals, kpis, transactions, weeklyFlow } from "../../data/mock";
-
-const formatCurrency = (value: number) =>
-  new Intl.NumberFormat("es-CL", {
-    style: "currency",
-    currency: "CLP",
-    maximumFractionDigits: 0,
-  }).format(value);
+import { useCurrency } from "../../hooks/useCurrency";
 
 export default function DashboardPage() {
+  const { convert, format, updatedAt, isLoading } = useCurrency();
+
   return (
     <div className="space-y-10">
       {/* Resumen general + flujo semanal */}
@@ -27,13 +23,18 @@ export default function DashboardPage() {
               <div key={kpi.label} className="rounded-2xl bg-white/5 p-4">
                 <p className="text-xs text-slate-400">{kpi.label}</p>
                 <p className="mt-3 text-2xl font-semibold text-white">
-                  {kpi.value}
+                  {format.format(convert(kpi.value))}
                 </p>
                 <p className="mt-2 text-xs text-emerald-300">{kpi.delta}</p>
                 <p className="text-[11px] text-slate-500">{kpi.detail}</p>
               </div>
             ))}
           </div>
+          <p className="mt-6 text-xs text-slate-500">
+            {isLoading
+              ? "Actualizando cotizacion diaria..."
+              : `Cotizacion diaria: ${updatedAt ?? "Sin datos"}`}
+          </p>
         </div>
 
         <div className="glass-panel p-6">
@@ -86,7 +87,7 @@ export default function DashboardPage() {
                   </p>
                 </div>
                 <div className="text-right text-sm font-semibold text-white">
-                  {formatCurrency(tx.amount)}
+                  {format.format(convert(tx.amount))}
                   <p
                     className={`text-xs ${
                       tx.status === "pending"
@@ -125,8 +126,8 @@ export default function DashboardPage() {
                       />
                     </div>
                     <div className="flex items-center justify-between text-xs text-slate-400">
-                      <span>{formatCurrency(budget.spent)} usado</span>
-                      <span>{formatCurrency(budget.limit)} limite</span>
+                      <span>{format.format(convert(budget.spent))} usado</span>
+                      <span>{format.format(convert(budget.limit))} limite</span>
                     </div>
                   </div>
                 );
@@ -153,8 +154,8 @@ export default function DashboardPage() {
                       />
                     </div>
                     <div className="flex items-center justify-between text-xs text-slate-400">
-                      <span>{formatCurrency(goal.current)}</span>
-                      <span>{formatCurrency(goal.target)}</span>
+                      <span>{format.format(convert(goal.current))}</span>
+                      <span>{format.format(convert(goal.target))}</span>
                     </div>
                   </div>
                 );

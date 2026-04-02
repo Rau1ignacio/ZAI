@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import Sidebar from "../components/Sidebar";
-import Topbar from "../components/Topbar";
+import TopbarNav from "../components/TopbarNav";
 import MobileNav from "../components/MobileNav";
 
 type AppShellProps = {
@@ -13,7 +13,7 @@ export default function AppShell({ children }: AppShellProps) {
       {/* Sidebar fija para escritorio */}
       <Sidebar />
       <div className="lg:pl-72">
-        <Topbar />
+        <TopbarNav />
         <main className="px-6 pb-16 pt-6 sm:px-10">{children}</main>
       </div>
       <MobileNav />
