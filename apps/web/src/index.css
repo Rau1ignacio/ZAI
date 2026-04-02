@@ -42,10 +42,74 @@
   }
 
   html[data-theme="light"] .glass-panel {
-    @apply border-slate-200 bg-white/70;
+    @apply border-slate-200 bg-white shadow-sm;
   }
 
   html[data-theme="light"] .section-title {
     @apply text-slate-500;
+  }
+
+  html[data-theme="light"] .text-white {
+    @apply text-slate-900;
+  }
+
+  html[data-theme="light"] .text-slate-400 {
+    @apply text-slate-500;
+  }
+
+  html[data-theme="light"] .text-slate-300 {
+    @apply text-slate-600;
+  }
+
+  html[data-theme="light"] .text-white\/80 {
+    @apply text-slate-700;
+  }
+
+  html[data-theme="light"] .bg-slate-950\/95 {
+    @apply bg-white/95;
+  }
+
+  html[data-theme="light"] .border-white\/10 {
+    @apply border-slate-200;
+  }
+
+  html[data-theme="light"] .bg-white\/5 {
+    @apply bg-slate-100;
+  }
+
+  html[data-theme="light"] .bg-white\/10 {
+    @apply bg-slate-200;
+  }
+
+  html[data-theme="light"] .text-emerald-100 {
+    @apply text-emerald-700;
+  }
+
+  html[data-theme="light"] .text-emerald-300 {
+    @apply text-emerald-600;
+  }
+
+  html[data-theme="light"] .text-amber-300 {
+    @apply text-amber-600;
+  }
+
+  html[data-theme="light"] .text-rose-400 {
+    @apply text-rose-500;
+  }
+
+  html[data-theme="light"] .text-indigo-400 {
+    @apply text-indigo-500;
+  }
+
+  html[data-theme="light"] .bg-emerald-400\/10 {
+    @apply bg-emerald-100;
+  }
+
+  html[data-theme="light"] .border-emerald-400\/40 {
+    @apply border-emerald-200;
+  }
+
+  html[data-theme="light"] .bg-emerald-400\/80 {
+    @apply bg-emerald-500;
   }
 }
