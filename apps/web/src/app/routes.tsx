@@ -1,31 +1,32 @@
 ﻿import { Navigate, Route, Routes } from "react-router-dom";
+
 import AdminLayout from "../layouts/AdminLayout";
 import AppLayout from "../layouts/AppLayout";
 import AuthLayout from "../layouts/AuthLayout";
 import PublicLayout from "../layouts/PublicLayout";
 
-import DashboardPage from "../modules/dashboard/DashboardPage";
-import TransactionsPage from "../modules/transactions/TransactionsPage";
-import BudgetsPage from "../modules/budgets/BudgetsPage";
-import GoalsPage from "../modules/goals/GoalsPage";
-import DataEntryPage from "../modules/dataEntry/DataEntryPage";
+import DashboardPage from "../pages/dashboard/DashboardPage";
+import TransactionsPage from "../pages/transactions/TransactionsPage";
+import BudgetsPage from "../pages/budgets/BudgetsPage";
+import GoalsPage from "../pages/goals/GoalsPage";
+import DataEntryPage from "../pages/dataEntry/DataEntryPage";
 
-import AccountsPage from "../modules/core/AccountsPage";
-import AssetsPage from "../modules/core/AssetsPage";
-import InvestmentsPage from "../modules/core/InvestmentsPage";
-import CreditsPage from "../modules/core/CreditsPage";
-import BenefitsPage from "../modules/core/BenefitsPage";
-import IntelligencePage from "../modules/core/IntelligencePage";
-import AlertsPage from "../modules/core/AlertsPage";
-import SettingsPage from "../modules/core/SettingsPage";
+import AccountsPage from "../pages/core/AccountsPage";
+import AssetsPage from "../pages/core/AssetsPage";
+import InvestmentsPage from "../pages/core/InvestmentsPage";
+import CreditsPage from "../pages/core/CreditsPage";
+import BenefitsPage from "../pages/core/BenefitsPage";
+import IntelligencePage from "../pages/core/IntelligencePage";
+import AlertsPage from "../pages/core/AlertsPage";
+import SettingsPage from "../pages/core/SettingsPage";
 
-import AdminDashboardPage from "../modules/admin/AdminDashboardPage";
-import UsersPage from "../modules/admin/UsersPage";
-import LogsPage from "../modules/admin/LogsPage";
-import CategoriesPage from "../modules/admin/CategoriesPage";
-import AdminBenefitsPage from "../modules/admin/AdminBenefitsPage";
-import SubscriptionsPage from "../modules/admin/SubscriptionsPage";
-import AnalyticsPage from "../modules/admin/AnalyticsPage";
+import AdminDashboardPage from "../pages/admin/AdminDashboardPage";
+import UsersPage from "../pages/admin/UsersPage";
+import LogsPage from "../pages/admin/LogsPage";
+import CategoriesPage from "../pages/admin/CategoriesPage";
+import AdminBenefitsPage from "../pages/admin/AdminBenefitsPage";
+import SubscriptionsPage from "../pages/admin/SubscriptionsPage";
+import AnalyticsPage from "../pages/admin/AnalyticsPage";
 
 import MarketingHomePage from "../pages/marketing/MarketingHomePage";
 import CampaignLandingPage from "../pages/marketing/CampaignLandingPage";
@@ -57,7 +58,7 @@ export default function AppRoutes() {
   return (
     <Routes>
       <Route element={<PublicLayout />}>
-        <Route index element={<MarketingHomePage />} />
+        <Route index element={<HomePage />} />
         <Route path="home" element={<HomePage />} />
         <Route path="features" element={<FeaturesPage />} />
         <Route path="pricing" element={<PricingPage />} />

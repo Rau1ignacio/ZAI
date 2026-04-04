@@ -15,13 +15,14 @@ export function useCurrency() {
   }, [currency, data]);
 
   const convert = (value: number) => value * rate;
+  const formatValue = (value: number) => formatCurrency(value, currency);
 
   return {
     currency,
     convert,
-    format: {
-      format: (value: number) => formatCurrency(value, currency),
-    },
+    format: Object.assign(formatValue, { format: formatValue }) as ((
+      value: number
+    ) => string) & { format: (value: number) => string },
     isLoading,
     updatedAt: data?.date ?? null,
   };

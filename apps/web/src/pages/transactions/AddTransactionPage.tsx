@@ -1,3 +1,5 @@
+// la ruta de esta pagina es wwww.zai.com/app/agregar-movimiento
+
 import { useFinanceData } from "../../hooks/useFinanceData";
 import TransactionForm from "../../components/forms/TransactionForm";
 import { useNavigate } from "react-router-dom";

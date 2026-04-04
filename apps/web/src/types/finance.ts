@@ -22,7 +22,15 @@ export type Budget = {
   limit: number;
   category?: string;
   currency?: string;
-  period?: "monthly" | "quarterly" | "yearly";
+  period?:
+    | "daily"
+    | "weekly"
+    | "monthly"
+    | "quarterly"
+    | "yearly"
+    | "annual";
+  frequency?: "daily" | "weekly" | "monthly" | "annual";
+  budgetType?: "fixed" | "variable";
 };
 
 // ============ METAS ============

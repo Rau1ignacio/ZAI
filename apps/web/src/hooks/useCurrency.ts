@@ -15,12 +15,17 @@ export function useCurrency() {
 
   const format = useMemo(() => {
     const fractionDigits = currency === "CLP" ? 0 : 2;
-    return new Intl.NumberFormat("es-CL", {
+    const formatter = new Intl.NumberFormat("es-CL", {
       style: "currency",
       currency,
       minimumFractionDigits: fractionDigits,
       maximumFractionDigits: fractionDigits,
     });
+
+    const formatValue = (value: number) => formatter.format(value);
+    return Object.assign(formatValue, { format: formatValue }) as ((
+      value: number
+    ) => string) & { format: (value: number) => string };
   }, [currency]);
 
   const convert = (value: number) => value * rate;
