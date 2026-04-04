@@ -198,24 +198,6 @@ export default function TopbarClient() {
         <div className="h-16 px-4 sm:px-6 lg:px-10">
           <div className="mx-auto flex h-full max-w-screen-2xl items-center gap-3">
                                   
-            <nav className="hidden xl:flex items-center gap-1 rounded-xl border border-white/10 bg-white/5 p-1">
-              {QUICK_NAV.map((item) => (
-                <NavLink
-                  key={item.to}
-                  to={item.to}
-                  className={({ isActive }) =>
-                    `rounded-lg px-3 py-2 text-xs font-semibold transition ${
-                      isActive
-                        ? "bg-cyan-400/20 text-cyan-100"
-                        : "text-slate-300 hover:bg-white/10 hover:text-white"
-                    }`
-                  }
-                >
-                  {item.label}
-                </NavLink>
-              ))}
-            </nav>
-
             <form
               onSubmit={handleSearchSubmit}
               className="relative hidden flex-1 md:flex md:max-w-xl lg:max-w-2xl"

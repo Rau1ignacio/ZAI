@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import AppRoutes from "./routes";
 import { useThemeStore } from "../store/useThemeStore";
 import { Toaster } from "react-hot-toast";
+import AppErrorBoundary from "../components/AppErrorBoundary";
 
 export default function App() {
   const { updateResolvedTheme, resolvedTheme } = useThemeStore();
@@ -20,7 +21,9 @@ export default function App() {
 
   return (
     <BrowserRouter>
-      <AppRoutes />
+      <AppErrorBoundary>
+        <AppRoutes />
+      </AppErrorBoundary>
       <Toaster position="top-right" theme={resolvedTheme} />
     </BrowserRouter>
   );

@@ -10,15 +10,15 @@ import {
 } from "../../data/siteContent";
 
 const problemStatements = [
-  "El flujo se ve bien en teorÃ­a, pero el dÃ­a a dÃ­a se sale del presupuesto.",
-  "No sabes quÃ© deuda atacar primero ni cuÃ¡nto te cuesta realmente cada crÃ©dito.",
-  "La educaciÃ³n financiera llega tarde o es demasiado tÃ©cnica para tu rutina.",
+  "El flujo se ve bien en teoría, pero el día a día se sale del presupuesto.",
+  "No sabes qué deuda atacar primero ni cuánto te cuesta realmente cada crédito.",
+  "La educación financiera llega tarde o es demasiado técnica para tu rutina.",
 ];
 
 const solutionStatements = [
   "IA que detecta y te sugiere recortar gastos inmediatamente.",
-  "Score dinÃ¡mico y simuladores que te preparan para renegociar deudas.",
-  "Comparte dashboards, planifica metas y aprende con contenidos dinÃ¡micos.",
+  "Score dinámico y simuladores que te preparan para renegociar deudas.",
+  "Comparte dashboards, planifica metas y aprende con contenidos dinámicos.",
 ];
 
 export default function MarketingHomePage() {
@@ -31,21 +31,21 @@ export default function MarketingHomePage() {
             Controla tu dinero. Crece con claridad.
           </h1>
           <p className="text-slate-300">
-            ZAI combina IA, datos y educaciÃ³n financiera para darte recomendaciones
-            proactivas, paneles de flujo y planes de acciÃ³n sin ruido.
+            ZAI combina IA, datos y educación financiera para darte recomendaciones
+            proactivas, paneles de flujo y planes de acción sin ruido.
           </p>
           <div className="flex flex-wrap gap-3">
             <Link
               to="/onboarding"
               className="rounded-2xl bg-gradient-to-r from-blue-600 to-emerald-500 px-6 py-3 text-sm font-semibold text-white shadow-lg"
             >
-              RegÃ­strate
+              Regístrate
             </Link>
             <Link
               to="/pages"
               className="rounded-2xl border border-white/20 px-6 py-3 text-sm font-semibold text-white/80"
             >
-              Explorar pÃ¡ginas
+              Explorar páginas
             </Link>
           </div>
         </div>
@@ -75,15 +75,15 @@ export default function MarketingHomePage() {
           <p className="section-title">Problema</p>
           <div className="space-y-2 text-sm text-slate-300">
             {problemStatements.map((statement) => (
-              <p key={statement}>â€¢ {statement}</p>
+              <p key={statement}>• {statement}</p>
             ))}
           </div>
         </div>
         <div className="glass-panel p-6 space-y-4">
-          <p className="section-title">SoluciÃ³n ZAI</p>
+          <p className="section-title">Solución ZAI</p>
           <div className="space-y-2 text-sm text-slate-300">
             {solutionStatements.map((statement) => (
-              <p key={statement}>â€¢ {statement}</p>
+              <p key={statement}>• {statement}</p>
             ))}
           </div>
         </div>
@@ -103,7 +103,7 @@ export default function MarketingHomePage() {
       </section>
 
       <section className="space-y-6">
-        <p className="section-title">CÃ³mo funciona</p>
+        <p className="section-title">Cómo funciona</p>
         <div className="grid gap-4 md:grid-cols-3">
           {marketingSteps.map((step) => (
             <div key={step.title} className="glass-panel p-5">
@@ -119,7 +119,7 @@ export default function MarketingHomePage() {
         <div className="grid gap-4 md:grid-cols-3">
           {marketingTestimonials.map((testimonial) => (
             <div key={testimonial.author} className="glass-panel p-6 space-y-3">
-              <p className="text-sm text-slate-200">â€œ{testimonial.quote}â€</p>
+              <p className="text-sm text-slate-200">“{testimonial.quote}”</p>
               <p className="text-xs uppercase tracking-[0.3em] text-slate-500">
                 {testimonial.label}
               </p>
@@ -150,7 +150,7 @@ export default function MarketingHomePage() {
               <p className="mt-1 text-sm text-slate-200">{plan.description}</p>
               <ul className="mt-4 space-y-2 text-sm text-slate-300">
                 {plan.features.map((feature) => (
-                  <li key={feature}>â€¢ {feature}</li>
+                  <li key={feature}>• {feature}</li>
                 ))}
               </ul>
             </div>
@@ -160,7 +160,7 @@ export default function MarketingHomePage() {
           <p className="section-title">Comparativa Freemium vs Premium</p>
           <div className="mt-4 rounded-2xl border border-white/5 bg-slate-950/40 p-4">
             <div className="grid grid-cols-[2fr,0.6fr,0.6fr] text-xs uppercase tracking-[0.3em] text-slate-500">
-              <span>CaracterÃ­stica</span>
+              <span>Característica</span>
               <span className="text-right">Freemium</span>
               <span className="text-right">Premium</span>
             </div>
@@ -171,8 +171,8 @@ export default function MarketingHomePage() {
                   className="grid grid-cols-[2fr,0.6fr,0.6fr] text-sm text-slate-300"
                 >
                   <span>{comparison.feature}</span>
-                  <span className="text-right">{comparison.freemium ? "âœ”" : "â€”"}</span>
-                  <span className="text-right">{comparison.premium ? "âœ”" : "â€”"}</span>
+                  <span className="text-right">{comparison.freemium ? "✔" : "—"}</span>
+                  <span className="text-right">{comparison.premium ? "✔" : "—"}</span>
                 </div>
               ))}
             </div>
@@ -192,9 +192,9 @@ export default function MarketingHomePage() {
           ))}
         </div>
         <div className="rounded-2xl border border-white/10 bg-gradient-to-r from-emerald-500/10 to-blue-500/10 p-6 text-sm text-slate-200">
-          <p className="font-semibold text-white">Â¿Listo para probar?</p>
+          <p className="font-semibold text-white">¿Listo para probar?</p>
           <p className="mt-2">
-            Registra tus cuentas, llena la configuraciÃ³n inicial y deja que la IA prepare el
+            Registra tus cuentas, llena la configuración inicial y deja que la IA prepare el
             plan perfecto para ti.
           </p>
           <div className="mt-4 flex gap-3">
@@ -216,4 +216,5 @@ export default function MarketingHomePage() {
     </div>
   );
 }
+
 

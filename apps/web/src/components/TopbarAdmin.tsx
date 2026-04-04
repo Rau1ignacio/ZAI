@@ -8,10 +8,10 @@ import {
   Search,
   ShieldCheck,
   Sun,
-  X,
 } from "lucide-react";
 import { useThemeStore } from "../store/useThemeStore";
 import { useUserStore } from "../store/useUserStore";
+import { useAdminSidebarStore } from "../store/useAdminSidebarStore";
 
 const ROUTE_TITLES: Record<string, string> = {
   "/admin/dashboard": "Dashboard Admin",
@@ -49,17 +49,16 @@ export default function TopbarAdmin() {
 
   const title = ROUTE_TITLES[pathname] ?? "ZAI Admin";
   const userName = useUserStore((state) => state.name);
+  const openAdminMobileSidebar = useAdminSidebarStore((state) => state.openMobile);
   const { resolvedTheme, setTheme } = useThemeStore();
 
   const [searchValue, setSearchValue] = useState("");
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [notificationsOpen, setNotificationsOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
 
   const searchRef = useRef<HTMLInputElement | null>(null);
   const notificationsRef = useRef<HTMLDivElement | null>(null);
   const profileRef = useRef<HTMLDivElement | null>(null);
-  const mobileMenuRef = useRef<HTMLDivElement | null>(null);
 
   const notifications = useMemo(
     () => [
@@ -90,7 +89,6 @@ export default function TopbarAdmin() {
       if (event.key === "Escape") {
         setNotificationsOpen(false);
         setProfileOpen(false);
-        setMobileMenuOpen(false);
       }
     };
 
@@ -102,9 +100,6 @@ export default function TopbarAdmin() {
       }
       if (profileRef.current && !profileRef.current.contains(target)) {
         setProfileOpen(false);
-      }
-      if (mobileMenuRef.current && !mobileMenuRef.current.contains(target)) {
-        setMobileMenuOpen(false);
       }
     };
 
@@ -124,13 +119,21 @@ export default function TopbarAdmin() {
 
     navigate(resolveAdminSearchRoute(trimmed));
     setSearchValue("");
-    setMobileMenuOpen(false);
   };
 
   return (
     <header className="sticky top-0 z-40 border-b border-white/10 bg-slate-950/80 backdrop-blur-xl dark:border-white/10 dark:bg-slate-950/80 light:border-slate-200 light:bg-white/90">
-      <div className="h-16 px-4 sm:px-6 lg:px-10" ref={mobileMenuRef}>
+      <div className="h-16 px-4 sm:px-6 lg:px-10">
         <div className="mx-auto flex h-full max-w-screen-2xl items-center gap-3">
+          <button
+            type="button"
+            onClick={openAdminMobileSidebar}
+            className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-slate-300 transition hover:border-cyan-400/50 hover:text-cyan-200 lg:hidden"
+            aria-label="Abrir navegacion admin"
+          >
+            <Menu className="h-4 w-4" />
+          </button>
+
           <Link
             to="/admin/dashboard"
             className="inline-flex shrink-0 items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-2.5 py-1.5 transition hover:border-cyan-400/50 hover:bg-cyan-400/10"
@@ -268,38 +271,7 @@ export default function TopbarAdmin() {
               )}
             </div>
 
-            <button
-              type="button"
-              onClick={() => setMobileMenuOpen((current) => !current)}
-              className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-slate-300 transition hover:border-cyan-400/50 hover:text-cyan-200 md:hidden"
-              aria-label="Abrir menu admin"
-            >
-              {mobileMenuOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
-            </button>
           </div>
-
-          {mobileMenuOpen && (
-            <div className="absolute left-4 right-4 top-[4.25rem] z-50 rounded-2xl border border-white/10 bg-slate-950/95 p-3 shadow-2xl backdrop-blur-xl md:hidden">
-              <nav className="space-y-1">
-                {ADMIN_LINKS.map((link) => (
-                  <NavLink
-                    key={link.to}
-                    to={link.to}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className={({ isActive }) =>
-                      `block rounded-lg px-3 py-2 text-sm font-semibold transition ${
-                        isActive
-                          ? "bg-cyan-500/15 text-cyan-100"
-                          : "text-slate-200 hover:bg-white/10"
-                      }`
-                    }
-                  >
-                    {link.label}
-                  </NavLink>
-                ))}
-              </nav>
-            </div>
-          )}
         </div>
       </div>
     </header>

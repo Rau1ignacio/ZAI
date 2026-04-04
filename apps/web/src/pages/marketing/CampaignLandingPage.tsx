@@ -14,7 +14,7 @@ export default function CampaignLandingPage() {
   return (
     <div className="space-y-8">
       <div className="glass-panel p-8">
-        <p className="section-title">CampaÃ±a</p>
+        <p className="section-title">Campaña</p>
         <h1 className="text-3xl font-semibold text-white">{campaign.title}</h1>
         <p className="mt-2 text-slate-300">{campaign.description}</p>
         <div className="mt-4 flex flex-wrap gap-4">
@@ -22,7 +22,7 @@ export default function CampaignLandingPage() {
             to="/onboarding"
             className="rounded-full bg-gradient-to-r from-blue-600 to-emerald-500 px-5 py-2 text-xs font-semibold text-white"
           >
-            Empezar configuraciÃ³n
+            Empezar configuración
           </Link>
           <Link
             to="/login"
@@ -39,7 +39,7 @@ export default function CampaignLandingPage() {
           <h2 className="text-2xl font-semibold text-white">{campaign.focus}</h2>
           <div className="space-y-3 text-sm text-slate-300">
             {campaign.heroPoints.map((point) => (
-              <p key={point}>â€¢ {point}</p>
+              <p key={point}>• {point}</p>
             ))}
           </div>
         </div>
@@ -47,7 +47,7 @@ export default function CampaignLandingPage() {
           <p className="section-title">Highlights</p>
           <div className="mt-4 space-y-2 text-sm text-slate-100">
             {campaign.highlights.map((highlight) => (
-              <p key={highlight}>â€¢ {highlight}</p>
+              <p key={highlight}>• {highlight}</p>
             ))}
           </div>
         </div>
@@ -66,11 +66,12 @@ export default function CampaignLandingPage() {
         <p className="section-title">Acciones sugeridas</p>
         <ul className="list-disc space-y-2 pl-5 text-slate-300 text-sm">
           <li>Comparte este reporte con tu equipo o familia.</li>
-          <li>Sigue las alertas para anticipar pagos crÃ­ticos.</li>
+          <li>Sigue las alertas para anticipar pagos críticos.</li>
           <li>Activa los convenios recomendados para desbloquear beneficios.</li>
         </ul>
       </div>
     </div>
   );
 }
+
 
