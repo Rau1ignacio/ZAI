@@ -1,11 +1,11 @@
-import { NavLink } from "react-router-dom";
+﻿import { NavLink } from "react-router-dom";
 
 const navItems = [
-  { to: "/", label: "Inicio" },
-  { to: "/data-entry", label: "Agregar" },
-  { to: "/transactions", label: "Movs" },
-  { to: "/budgets", label: "Presup" },
-  { to: "/goals", label: "Metas" },
+  { to: "/app/dashboard", label: "Inicio" },
+  { to: "/app/transactions", label: "Movs" },
+  { to: "/app/assets", label: "Patrimonio" },
+  { to: "/app/budgets", label: "Presup" },
+  { to: "/app/goals", label: "Metas" },
 ];
 
 export default function MobileNav() {
@@ -16,10 +16,7 @@ export default function MobileNav() {
           key={item.to}
           to={item.to}
           className={({ isActive }) =>
-            [
-              "text-xs font-semibold",
-              isActive ? "text-white" : "text-slate-500",
-            ].join(" ")
+            ["text-xs font-semibold", isActive ? "text-white" : "text-slate-500"].join(" ")
           }
         >
           {item.label}

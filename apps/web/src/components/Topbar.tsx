@@ -54,7 +54,7 @@ export default function Topbar() {
               type="button"
               onClick={() => setMenuOpen((prev) => !prev)}
             >
-              Tema: {theme === "system " ? "Sistema" : theme === "light " ? "Claro" : "Oscuro"}
+              Tema: {theme === "system" ? "Sistema" : theme === "light" ? "Claro" : "Oscuro"}
               <span className="text-xs text-slate-500">▾</span>
             </button>
             <div

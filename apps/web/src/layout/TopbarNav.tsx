@@ -10,11 +10,51 @@ const routeTitles: Record<string, string> = {
   "/budgets": "Presupuestos",
   "/goals": "Metas",
   "/auth": "Acceso",
+  "/marketing/home": "Home",
+  "/marketing/pricing": "Planes",
+  "/marketing/about": "Sobre nosotros",
+  "/marketing/blog": "Blog",
+  "/onboarding/configuracion": "Onboarding",
+  "/pages": "Mapa de páginas",
+  "/core/cuentas": "Cuentas",
+  "/core/patrimonio": "Patrimonio",
+  "/core/inversiones": "Inversiones",
+  "/core/creditos": "Créditos",
+  "/core/beneficios": "Beneficios",
+  "/core/inteligencia": "Inteligencia",
+  "/core/alertas": "Alertas",
+  "/core/configuracion": "Configuración",
+  "/admin/dashboard": "Dashboard admin",
+  "/admin/usuarios": "Usuarios",
+  "/admin/logs": "Logs",
+  "/admin/categorias": "Categorías",
+  "/admin/beneficios": "Beneficios admin",
+  "/admin/pagos": "Pagos & suscripciones",
+  "/admin/analytics": "Analytics",
+  "/extra/app-movil": "App móvil",
+  "/extra/seguridad": "Seguridad",
+  "/extra/soporte": "Soporte",
+  "/extra/legal": "Legal",
+  "/marketing/landing/controla": "Landing controla",
+  "/marketing/landing/sal-de-deudas": "Landing deudas",
+  "/marketing/landing/invierte-mejor": "Landing inversiones",
 };
 
 export default function TopbarNav() {
   const { pathname } = useLocation();
-  const title = routeTitles[pathname] ?? "ZAI";
+  const title =
+    routeTitles[pathname] ??
+    (pathname.startsWith("/marketing/landing")
+      ? "Landing campaña"
+      : pathname.startsWith("/marketing")
+      ? "Marketing"
+      : pathname.startsWith("/core")
+      ? "Producto"
+      : pathname.startsWith("/admin")
+      ? "Admin"
+      : pathname.startsWith("/extra")
+      ? "Extras"
+      : "ZAI");
   const userName = useUserStore((state) => state.name);
   const currency = useCurrencyStore((state) => state.currency);
   const setCurrency = useCurrencyStore((state) => state.setCurrency);

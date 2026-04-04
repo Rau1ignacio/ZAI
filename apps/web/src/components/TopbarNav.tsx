@@ -1,15 +1,19 @@
-import { Link, useLocation } from "react-router-dom";
+﻿import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useUserStore } from "../store/useUserStore";
 import { useCurrencyStore } from "../store/useCurrencyStore";
 import { useExchangeRates } from "../hooks/useExchangeRates";
 
 const routeTitles: Record<string, string> = {
-  "/": "Dashboard",
-  "/transactions": "Transacciones",
-  "/budgets": "Presupuestos",
-  "/goals": "Metas",
-  "/auth": "Acceso",
+  "/app/dashboard": "Dashboard",
+  "/app/accounts": "Cuentas",
+  "/app/transactions": "Transacciones",
+  "/app/assets": "Patrimonio",
+  "/app/budgets": "Presupuestos",
+  "/app/goals": "Metas",
+  "/app/intelligence": "Inteligencia",
+  "/app/alerts": "Alertas",
+  "/app/settings": "Configuración",
 };
 
 export default function TopbarNav() {
@@ -70,9 +74,7 @@ export default function TopbarNav() {
             </button>
             <div
               className={`absolute right-0 mt-2 w-40 overflow-hidden rounded-xl border border-white/10 bg-slate-950/95 shadow-lg transition-all duration-200 ${
-                themeOpen
-                  ? "scale-100 opacity-100"
-                  : "pointer-events-none scale-95 opacity-0"
+                themeOpen ? "scale-100 opacity-100" : "pointer-events-none scale-95 opacity-0"
               }`}
             >
               {(["system", "light", "dark"] as const).map((option) => (
@@ -111,9 +113,7 @@ export default function TopbarNav() {
             </button>
             <div
               className={`absolute right-0 mt-2 w-44 overflow-hidden rounded-xl border border-white/10 bg-slate-950/95 shadow-lg transition-all duration-200 ${
-                currencyOpen
-                  ? "scale-100 opacity-100"
-                  : "pointer-events-none scale-95 opacity-0"
+                currencyOpen ? "scale-100 opacity-100" : "pointer-events-none scale-95 opacity-0"
               }`}
             >
               {(["CLP", "USD"] as const).map((option) => (
@@ -135,9 +135,7 @@ export default function TopbarNav() {
                 </button>
               ))}
               <div className="border-t border-white/10 px-4 py-2 text-[11px] text-slate-500">
-                {isLoading
-                  ? "Actualizando cotizacion..."
-                  : `Tasa diaria ${data?.date ?? "Sin datos"}`}
+                {isLoading ? "Actualizando cotizacion..." : `Tasa diaria ${data?.date ?? "Sin datos"}`}
               </div>
             </div>
           </div>
@@ -150,7 +148,7 @@ export default function TopbarNav() {
           </button>
           <Link
             className="rounded-full border border-emerald-400/40 bg-emerald-400/10 px-4 py-2 text-xs font-semibold text-emerald-100"
-            to="/auth"
+            to="/login"
           >
             {userName}
           </Link>

@@ -2,9 +2,14 @@ import { NavLink } from "react-router-dom";
 
 const navItems = [
   { to: "/", label: "Dashboard" },
+  { to: "/core/cuentas", label: "Cuentas" },
   { to: "/transactions", label: "Transacciones" },
   { to: "/budgets", label: "Presupuestos" },
   { to: "/goals", label: "Metas" },
+  { to: "/core/patrimonio", label: "Patrimonio" },
+  { to: "/marketing/home", label: "Marketing" },
+  { to: "/admin/dashboard", label: "Admin" },
+  { to: "/pages", label: "Mapa" },
 ];
 
 export default function Sidebar() {
